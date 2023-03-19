@@ -943,7 +943,7 @@ namespace IMAL_KYC
                 string SstatusDesc = "";
                 string remoteIP = "";
                 string RequestID = "";
-                if(AdditionalRef != null)
+                if(AdditionalRef != "")
                 {
                    
                         CIFNo = AdditionalRef.Substring(10, 6).Trim();
