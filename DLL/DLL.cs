@@ -1072,13 +1072,21 @@ namespace IMAL_KYC
                                         XmlNodeList XNSDCIFcifLimitCapDescription = xmlDoc.GetElementsByTagName("cifLimitCapDescription");
                                         SDCIFcifLimitCapDescription = XNSDCIFcifLimitCapDescription[0].InnerXml;
 
+                                   
+                                            XmlNodeList XNcifRating = xmlDoc.GetElementsByTagName("cifRating");
+                                        var VcifRating = xmlDoc.GetElementsByTagName("cifRating");
+                                        if (VcifRating.Count >0)
+                                        {
+                                            SDCIFcifRating = XNcifRating[0].InnerXml;
+                                        }
 
-                                        XmlNodeList XNcifRating = xmlDoc.GetElementsByTagName("cifRating");
-                                        SDCIFcifRating = XNcifRating[0].InnerXml;
-
-
+                       
                                         XmlNodeList XNSDCIFcifRatingDescription = xmlDoc.GetElementsByTagName("cifRatingDescription");
-                                        SDCIFcifRatingDescription = XNSDCIFcifRatingDescription[0].InnerXml;
+                                        var vSDCIFcifRatingDescription = xmlDoc.GetElementsByTagName("cifRatingDescription");
+                                        if (vSDCIFcifRatingDescription.Count >0)
+                                        {
+                                            SDCIFcifRatingDescription = XNSDCIFcifRatingDescription[0].InnerXml;
+                                        }
 
 
                                         XmlNodeList XNSDCIFcountryDescription = xmlDoc.GetElementsByTagName("countryDescription");
@@ -1107,31 +1115,47 @@ namespace IMAL_KYC
                                         XmlNodeList XNSDCIFlegalStatusDescription = xmlDoc.GetElementsByTagName("legalStatusDescription");
                                         SDCIFlegalStatusDescription = XNSDCIFlegalStatusDescription[0].InnerXml;
 
-
-
-
                                         XmlNodeList XNoccupation = xmlDoc.GetElementsByTagName("occupation");
-                                        SDCIFoccupation = XNoccupation[0].InnerXml;
-
+                                        var Voccupation = xmlDoc.GetElementsByTagName("occupation");
+                                        if (Voccupation.Count > 0)
+                                        {
+                                        
+                                            SDCIFoccupation = XNoccupation[0].InnerXml;
+                                        }
 
                                         XmlNodeList XNoccupationDescription = xmlDoc.GetElementsByTagName("occupationDescription");
-                                        SDCIFoccupationDescription = XNoccupationDescription[0].InnerXml;
+                                        var VoccupationDescription = xmlDoc.GetElementsByTagName("occupationDescription");
+                                        if (VoccupationDescription.Count >0)
+                                        {
 
+                                      
+                                            SDCIFoccupationDescription = XNoccupationDescription[0].InnerXml;
+                                        }
 
                                         XmlNodeList XNprofession = xmlDoc.GetElementsByTagName("profession");
-                                        SDCIFprofession = XNprofession[0].InnerXml;
-
+                                        var Vprofession = xmlDoc.GetElementsByTagName("profession");
+                                        if (Vprofession.Count >0)
+                                        {
+                                            SDCIFprofession = XNprofession[0].InnerXml;
+                                        }
 
                                         XmlNodeList XNranking = xmlDoc.GetElementsByTagName("ranking");
-                                        SDCIFranking = XNranking[0].InnerXml;
+                                        var Vranking = xmlDoc.GetElementsByTagName("ranking");
+                                        if (Vranking.Count >0)
+                                        {
+                                            SDCIFranking = XNranking[0].InnerXml;
 
+                                        }
                                         XmlNodeList XNrankingDescription = xmlDoc.GetElementsByTagName("rankingDescription");
                                         SDCIFrankingDescription = XNrankingDescription[0].InnerXml;
 
 
                                         XmlNodeList XNresident = xmlDoc.GetElementsByTagName("resident");
-                                        SDCIFresident = XNresident[0].InnerXml;
-
+                                        var Vresident = xmlDoc.GetElementsByTagName("resident");
+                                        if (Vresident.Count>0)
+                                        {
+                                            SDCIFresident = XNresident[0].InnerXml;
+                                        }
 
                                         XmlNodeList XNcifBranchCode = xmlDoc.GetElementsByTagName("cifBranchCode");
                                         SDCIFcifBranchCode = XNcifBranchCode[0].InnerXml;
@@ -1181,9 +1205,13 @@ namespace IMAL_KYC
 
 
                                         XmlNodeList XNmaritalStatus = xmlDoc.GetElementsByTagName("maritalStatus");
-                                        SDCIFmaritalStatus = XNmaritalStatus[0].InnerXml;
+                                        var VmaritalStatus = xmlDoc.GetElementsByTagName("maritalStatus");
+                                        if (VmaritalStatus.Count > 0)
+                                        {
 
+                                            SDCIFmaritalStatus = XNmaritalStatus[0].InnerXml;
 
+                                        }
 
                                         XmlNodeList XNmodeOfStatementDelivery = xmlDoc.GetElementsByTagName("modeOfStatementDelivery");
                                         SDCIFmodeOfStatementDelivery = XNmodeOfStatementDelivery[0].InnerXml;
@@ -1191,14 +1219,21 @@ namespace IMAL_KYC
 
 
                                         XmlNodeList XNnationality = xmlDoc.GetElementsByTagName("nationality");
-                                        SDCIFnationality = XNnationality[0].InnerXml;
-
+                                        var Vnationality = xmlDoc.GetElementsByTagName("nationality");
+                                        if (Vnationality.Count > 0)
+                                        {
+                                            SDCIFnationality = XNnationality[0].InnerXml;
+                                        }
 
 
                                         XmlNodeList XNnationalityDescription = xmlDoc.GetElementsByTagName("nationalityDescription");
-                                        SDCIFnationalityDescription = XNnationalityDescription[0].InnerXml;
 
+                                        var VnationalityDescription = xmlDoc.GetElementsByTagName("nationalityDescription");
+                                        if (VnationalityDescription.Count > 0)
+                                        {
+                                            SDCIFnationalityDescription = XNnationalityDescription[0].InnerXml;
 
+                                        }
                                         XmlNodeList XNstatus = xmlDoc.GetElementsByTagName("status");
                                         SDCIFstatus = XNstatus[0].InnerXml;
 
