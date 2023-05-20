@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Xml;
@@ -77,7 +78,24 @@ namespace IMAL_KYC
         string SDCIFnationality = string .Empty;
         string SDCIFnationalityDescription=string.Empty;
         string SDCIFstatus = string.Empty;
-
+        string SaddressEnglish = string.Empty;
+        string SaddressArabic = string.Empty;
+        string SareaDescription = string.Empty;
+        string ScountryDescription = string.Empty;
+        string SregionDescription = string.Empty;
+        string Sgender = string.Empty;
+        string SemployerCifName = string.Empty;
+        string thirdNameEnglish = string.Empty;
+        string thirdNameArabic = string.Empty;
+        string lastNameArabic = string.Empty;
+        string lastNameEnglish = string.Empty;
+        string firstNameArabic = string.Empty;
+        string firstNameEnglish = string.Empty;
+        string secondNameArabic = string.Empty;
+        string secondNameEnglish = string.Empty;
+        string dateOfBirth = string.Empty;
+        string country = string.Empty;
+        string mobile = string .Empty;
 
 
         DAL DalCode = new DAL();
@@ -558,10 +576,44 @@ namespace IMAL_KYC
 
             public string? CIFstatus { get; set; }
 
+            public string? addressEnglish { get; set; }
+
+            public string? addressArabic { get;set; }
+
+            public string? areaDescription { get; set; }
+
+            public string? countryDescription { get; set; }
+
+            public string? regionDescription { get; set; }
+
+            public string? gender { get; set; }
+
             public string? statusCode { get; set; }
             public string? statusDesc { get; set; }
 
+            public string? employerCifName { get; set; }
 
+            public string? firstNameArabic { get; set; }
+
+            public string? firstNameEnglish { get; set; }
+
+            public string? lastNameArabic { get; set; }
+
+            public string? lastNameEnglish { get; set; }
+
+            public string? secondNameArabic { get; set; }
+
+            public string? secondNameEnglish { get; set; }
+
+            public string? thirdNameArabic { get; set; }
+
+            public string? thirdNameEnglish { get; set; }
+
+            public string? dateOfBirth { get; set; }
+
+            public string? country { get; set; }
+
+            public string? mobile { get; set; }
 
 
         }
@@ -935,6 +987,7 @@ namespace IMAL_KYC
 
         public string GetCifDetails(string MobileNo,string idNumber,string username,string password,string requesterTimeStamp,string ChannelName,string CIFNo,string AdditionalRef)
         {
+  
             List<logCIFDetils> logrequest = new List<logCIFDetils>();
             List<RespCIFDTS> respnsCIFDTS = new List<RespCIFDTS>();
             try
@@ -997,14 +1050,14 @@ namespace IMAL_KYC
          <cifNumber>" + CIFNo + @"</cifNumber>
           <requestContext>
             <requestID>" + RequestID + @"</requestID>
-            <!--<coreRequestTimeStamp>?</coreRequestTimeStamp>-->
+            <coreRequestTimeStamp>"+ requesterTimeStamp + @"</coreRequestTimeStamp>
          </requestContext>
          <requesterContext>
             <channelID>1</channelID>
             <hashKey>1</hashKey>
               <langId>EN</langId>
             <password>" + password + @"</password>
-            <requesterTimeStamp>2023-01-03T09:00:00</requesterTimeStamp>
+            <requesterTimeStamp>"+ requesterTimeStamp + @"</requesterTimeStamp>
             <userID>" + username + @"</userID>
          </requesterContext>
          <vendorContext>
@@ -1107,6 +1160,8 @@ namespace IMAL_KYC
                                         XmlNodeList XNSDCIFkyc = xmlDoc.GetElementsByTagName("kyc");
                                         SDCIFkyc = XNSDCIFkyc[0].InnerXml;
 
+                                        XmlNodeList XNgender = xmlDoc.GetElementsByTagName("gender");
+                                        Sgender = XNgender[0].InnerXml;
 
                                         XmlNodeList XNSDCIFlegalStatus = xmlDoc.GetElementsByTagName("legalStatus");
                                         SDCIFlegalStatus = XNSDCIFlegalStatus[0].InnerXml;
@@ -1130,6 +1185,15 @@ namespace IMAL_KYC
 
                                       
                                             SDCIFoccupationDescription = XNoccupationDescription[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNemployerCifName = xmlDoc.GetElementsByTagName("employerCifName");
+                                        var VemployerCifName = xmlDoc.GetElementsByTagName("employerCifName");
+                                        if (VemployerCifName.Count > 0)
+                                        {
+
+
+                                            SemployerCifName = XNemployerCifName[0].InnerXml;
                                         }
 
                                         XmlNodeList XNprofession = xmlDoc.GetElementsByTagName("profession");
@@ -1234,6 +1298,115 @@ namespace IMAL_KYC
                                             SDCIFnationalityDescription = XNnationalityDescription[0].InnerXml;
 
                                         }
+                                        XmlNodeList XNaddressEnglish = xmlDoc.GetElementsByTagName("addressEnglish");
+                                        var VaddressEnglish = xmlDoc.GetElementsByTagName("addressEnglish");
+                                        if(VaddressEnglish.Count > 0)
+                                        {
+                                            SaddressEnglish = XNaddressEnglish[0].InnerXml;
+                                        }
+                                        XmlNodeList XNaddressArabic = xmlDoc.GetElementsByTagName("addressArabic");
+                                        var VaddressArabic = xmlDoc.GetElementsByTagName("addressArabic");
+                                        if(VaddressArabic.Count > 0)
+                                        {
+                                            SaddressArabic = XNaddressArabic[0].ToString();
+                                        }
+                                        XmlNodeList XNareaDescription = xmlDoc.GetElementsByTagName("areaDescription");
+                                        var VareaDescription = xmlDoc.GetElementsByTagName("areaDescription");
+                                        if(VareaDescription.Count > 0)
+                                        {
+                                            SareaDescription = XNareaDescription[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNcountryDescription = xmlDoc.GetElementsByTagName("countryDescription");
+                                        var VcountryDescription = xmlDoc.GetElementsByTagName("countryDescription");
+                                        if(VcountryDescription.Count > 0)
+                                        {
+                                            ScountryDescription = XNcountryDescription[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNregionDescription = xmlDoc.GetElementsByTagName("regionDescription");
+                                        var VregionDescription = xmlDoc.GetElementsByTagName("regionDescription");
+                                        if(VregionDescription.Count > 0)
+                                        {
+                                            SregionDescription = XNregionDescription[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNsecondNameArabic = xmlDoc.GetElementsByTagName("secondNameArabic");
+                                        var VsecondNameArabic = xmlDoc.GetElementsByTagName("secondNameArabic");
+                                        if (VsecondNameArabic.Count > 0)
+                                        {
+                                            secondNameArabic = XNsecondNameArabic[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNsecondNameEnglish = xmlDoc.GetElementsByTagName("secondNameEnglish");
+                                        var VsecondNameEnglish = xmlDoc.GetElementsByTagName("secondNameEnglish");
+                                        if (VsecondNameEnglish.Count > 0)
+                                        {
+                                            secondNameEnglish = XNsecondNameEnglish[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNlastNameArabic = xmlDoc.GetElementsByTagName("lastNameArabic");
+                                        var VlastNameArabic = xmlDoc.GetElementsByTagName("lastNameArabic");
+                                        if (VsecondNameArabic.Count > 0)
+                                        {
+                                            lastNameArabic = XNlastNameArabic[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNlastNameEnglish = xmlDoc.GetElementsByTagName("lastNameEnglish");
+                                        var VlastNameEnglish = xmlDoc.GetElementsByTagName("lastNameEnglish");
+                                        if (VlastNameEnglish.Count > 0)
+                                        {
+                                            lastNameEnglish = XNlastNameEnglish[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNthirdNameArabic = xmlDoc.GetElementsByTagName("thirdNameArabic");
+                                        var VthirdNameArabic = xmlDoc.GetElementsByTagName("thirdNameArabic");
+                                        if (VthirdNameArabic.Count > 0)
+                                        {
+                                            thirdNameArabic = XNthirdNameArabic[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNthirdNameEnglish = xmlDoc.GetElementsByTagName("thirdNameEnglish");
+                                        var VthirdNameEnglish = xmlDoc.GetElementsByTagName("thirdNameEnglish");
+                                        if (VthirdNameEnglish.Count > 0)
+                                        {
+                                            thirdNameEnglish = XNthirdNameEnglish[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNfirstNameArabic = xmlDoc.GetElementsByTagName("firstNameArabic");
+                                        var VfirstNameArabic = xmlDoc.GetElementsByTagName("firstNameArabic");
+                                        if (VfirstNameArabic.Count > 0)
+                                        {
+                                            firstNameArabic = XNfirstNameArabic[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNfirstNameEnglish = xmlDoc.GetElementsByTagName("firstNameEnglish");
+                                        var VfirstNameEnglish = xmlDoc.GetElementsByTagName("firstNameEnglish");
+                                        if (VfirstNameEnglish.Count > 0)
+                                        {
+                                            firstNameEnglish = XNfirstNameEnglish[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNdateOfBirth = xmlDoc.GetElementsByTagName("dateOfBirth");
+                                        var VdateOfBirth = xmlDoc.GetElementsByTagName("dateOfBirth");
+                                        if (VdateOfBirth.Count > 0)
+                                        {
+                                            dateOfBirth = XNdateOfBirth[0].InnerXml;
+                                        }
+                                        XmlNodeList XNcountry = xmlDoc.GetElementsByTagName("country");
+                                        var Vcountry = xmlDoc.GetElementsByTagName("country");
+                                        if (Vcountry.Count > 0)
+                                        {
+                                            country = XNcountry[0].InnerXml;
+                                        }
+
+                                        XmlNodeList XNmobile = xmlDoc.GetElementsByTagName("mobile");
+                                        var Vmobile = xmlDoc.GetElementsByTagName("mobile");
+                                        if (Vmobile.Count > 0)
+                                        {
+                                            mobile = XNmobile[0].InnerXml;
+                                        }
+
                                         XmlNodeList XNstatus = xmlDoc.GetElementsByTagName("status");
                                         SDCIFstatus = XNstatus[0].InnerXml;
 
@@ -1259,6 +1432,7 @@ namespace IMAL_KYC
                                             CIFlegalStatus = SDCIFlegalStatus,
                                             CIFlegalStatusDescription = SDCIFlegalStatusDescription,
                                             CIFoccupation = SDCIFoccupation,
+                                            employerCifName = SemployerCifName,
                                             CIFoccupationDescription = SDCIFoccupationDescription,
                                             CIFprofession = SDCIFprofession,
                                             CIFranking = SDCIFranking,
@@ -1274,13 +1448,28 @@ namespace IMAL_KYC
                                             CIFjointAccounts = SDCIFjointAccounts,
                                             CIFlongNameArabic = SDCIFlongNameArabic,
                                             CIFlongNameEnglish = SDCIFlongNameEnglish,
+                                            firstNameEnglish = firstNameEnglish,
+                                            firstNameArabic = firstNameArabic,
+                                            secondNameArabic = secondNameArabic,
+                                            secondNameEnglish = secondNameEnglish,
+                                            thirdNameArabic = thirdNameArabic,
+                                            thirdNameEnglish = thirdNameEnglish,
+                                            lastNameArabic= lastNameArabic,
+                                            lastNameEnglish = lastNameEnglish,
+                                            gender = Sgender,
+                                            dateOfBirth = dateOfBirth,
                                             CIFmaritalStatus = SDCIFmaritalStatus,
                                             CIFmodeOfStatementDelivery = SDCIFmodeOfStatementDelivery,
                                             CIFnationality = SDCIFnationality,
                                             CIFnationalityDescription = SDCIFnationalityDescription,
                                             CIFstatus = SDCIFstatus,
-
-
+                                            addressEnglish = SaddressEnglish,
+                                            addressArabic = SaddressArabic,
+                                            areaDescription = SareaDescription,
+                                            country = country,
+                                            countryDescription = ScountryDescription,
+                                            regionDescription = SregionDescription,
+                                            mobile = mobile,
                                             statusCode = SstatusCode,
                                             statusDesc = SstatusDesc
                                         });
