@@ -96,7 +96,7 @@ namespace IMAL_KYC
         string dateOfBirth = string.Empty;
         string country = string.Empty;
         string mobile = string .Empty;
-
+        string email = string.Empty;
 
         DAL DalCode = new DAL();
         public class ResKYClist
@@ -615,6 +615,7 @@ namespace IMAL_KYC
 
             public string? mobile { get; set; }
 
+            public string? email { get; set; }
 
         }
 
@@ -1379,6 +1380,12 @@ namespace IMAL_KYC
                                         {
                                             firstNameArabic = XNfirstNameArabic[0].InnerXml;
                                         }
+                                        XmlNodeList XNemail = xmlDoc.GetElementsByTagName("email");
+                                        var Vemail = xmlDoc.GetElementsByTagName("email");
+                                        if (Vemail.Count > 0)
+                                        {
+                                            email = XNemail[0].InnerXml;
+                                        }
 
                                         XmlNodeList XNfirstNameEnglish = xmlDoc.GetElementsByTagName("firstNameEnglish");
                                         var VfirstNameEnglish = xmlDoc.GetElementsByTagName("firstNameEnglish");
@@ -1470,6 +1477,7 @@ namespace IMAL_KYC
                                             countryDescription = ScountryDescription,
                                             regionDescription = SregionDescription,
                                             mobile = mobile,
+                                            email = email,
                                             statusCode = SstatusCode,
                                             statusDesc = SstatusDesc
                                         });
