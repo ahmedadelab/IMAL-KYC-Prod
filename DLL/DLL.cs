@@ -1238,17 +1238,25 @@ namespace IMAL_KYC
                                         XmlNodeList XNcifTypeDescription = xmlDoc.GetElementsByTagName("cifTypeDescription");
                                         SDCIFcifTypeDescription = XNcifTypeDescription[0].InnerXml;
 
+                                       
+                                      
 
 
                                         XmlNodeList XNidDeliveryDate = xmlDoc.GetElementsByTagName("idDeliveryDate");
-                                        SDCIFidDeliveryDate = XNidDeliveryDate[0].InnerXml;
-
+                                        var VidDeliveryDate = xmlDoc.GetElementsByTagName("idDeliveryDate");
+                                        if (VidDeliveryDate.Count > 0)
+                                        {
+                                            SDCIFidDeliveryDate = XNidDeliveryDate[0].InnerXml;
+                                        }
 
 
                                         XmlNodeList XNidExpiryDate = xmlDoc.GetElementsByTagName("idExpiryDate");
-                                        SDCIFidExpiryDate = XNidExpiryDate[0].InnerXml;
+                                        var VidExpiryDate = xmlDoc.GetElementsByTagName("idExpiryDate");
+                                        if (VidExpiryDate.Count > 0)
+                                        {
+                                            SDCIFidExpiryDate = XNidExpiryDate[0].InnerXml;
 
-
+                                        }
 
                                         XmlNodeList XNjoinType = xmlDoc.GetElementsByTagName("joinType");
                                         SDCIFjoinType = XNjoinType[0].InnerXml;
