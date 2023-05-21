@@ -97,6 +97,8 @@ namespace IMAL_KYC
         string country = string.Empty;
         string mobile = string .Empty;
         string email = string.Empty;
+        string blockArabic = string.Empty;
+        string block =string.Empty;
 
         DAL DalCode = new DAL();
         public class ResKYClist
@@ -617,6 +619,9 @@ namespace IMAL_KYC
 
             public string? email { get; set; }
 
+            public string? blockArabic { get; set; }
+
+            public string? block { get; set; }
         }
 
 
@@ -1431,7 +1436,19 @@ namespace IMAL_KYC
                                         XmlNodeList XNstatus = xmlDoc.GetElementsByTagName("status");
                                         SDCIFstatus = XNstatus[0].InnerXml;
 
+                                        XmlNodeList XNblock = xmlDoc.GetElementsByTagName("block");
+                                        var Vblock = xmlDoc.GetElementsByTagName("block");
+                                        if (Vblock.Count > 0)
+                                        {
+                                            block = XNblock[0].InnerXml;
+                                        }
 
+                                        XmlNodeList XNblockArabic = xmlDoc.GetElementsByTagName("blockArabic");
+                                        var VblockArabic = xmlDoc.GetElementsByTagName("blockArabic");
+                                        if (VblockArabic.Count > 0)
+                                        {
+                                            blockArabic = XNblockArabic[0].InnerXml;
+                                        }
 
                                         CheckFields(ChannelName, "CIFDetails");
                                         respnsCIFDTS.Add(new RespCIFDTS
@@ -1492,6 +1509,8 @@ namespace IMAL_KYC
                                             regionDescription = SregionDescription,
                                             mobile = mobile,
                                             email = email,
+                                            blockArabic = blockArabic,
+                                            block =block,
                                             statusCode = SstatusCode,
                                             statusDesc = SstatusDesc
                                         });
