@@ -1153,8 +1153,11 @@ namespace IMAL_KYC
 
 
                                         XmlNodeList XNSDCIFcountryOfBirth = xmlDoc.GetElementsByTagName("countryOfBirth");
-                                        SDCIFcountryOfBirth = XNSDCIFcountryOfBirth[0].InnerXml;
-
+                                        var VcountryOfBirth = xmlDoc.GetElementsByTagName("countryOfBirth");
+                                        if (VcountryOfBirth.Count > 0)
+                                        {
+                                            SDCIFcountryOfBirth = XNSDCIFcountryOfBirth[0].InnerXml;
+                                        }
 
                                         XmlNodeList XNSDCIFeconomicSector = xmlDoc.GetElementsByTagName("economicSector");
                                         SDCIFeconomicSector = XNSDCIFeconomicSector[0].InnerXml;
