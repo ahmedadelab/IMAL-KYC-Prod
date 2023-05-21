@@ -1259,13 +1259,19 @@ namespace IMAL_KYC
                                         }
 
                                         XmlNodeList XNjoinType = xmlDoc.GetElementsByTagName("joinType");
-                                        SDCIFjoinType = XNjoinType[0].InnerXml;
+                                        var VjoinType = xmlDoc.GetElementsByTagName("joinType");
+                                        if (VjoinType.Count > 0)
+                                        {
+                                            SDCIFjoinType = XNjoinType[0].InnerXml;
+                                        }
 
-
-
+                                        
                                         XmlNodeList XNjointAccounts = xmlDoc.GetElementsByTagName("jointAccounts");
-                                        SDCIFjointAccounts = XNjointAccounts[0].InnerXml;
-
+                                        var VjointAccounts = xmlDoc.GetElementsByTagName("jointAccounts");
+                                        if (VjointAccounts.Count > 0)
+                                        {
+                                            SDCIFjointAccounts = XNjointAccounts[0].InnerXml;
+                                        }
 
 
                                         XmlNodeList XNlongNameArabic = xmlDoc.GetElementsByTagName("longNameArabic");
