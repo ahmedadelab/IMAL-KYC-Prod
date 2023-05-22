@@ -1225,8 +1225,11 @@ namespace IMAL_KYC
                                         SDCIFkyc = XNSDCIFkyc[0].InnerXml;
 
                                         XmlNodeList XNgender = xmlDoc.GetElementsByTagName("gender");
-                                        Sgender = XNgender[0].InnerXml;
-
+                                        var Vgender = xmlDoc.GetElementsByTagName("gender");
+                                        if (Vgender.Count > 0)
+                                        {
+                                            Sgender = XNgender[0].InnerXml;
+                                        }
                                         XmlNodeList XNSDCIFlegalStatus = xmlDoc.GetElementsByTagName("legalStatus");
                                         SDCIFlegalStatus = XNSDCIFlegalStatus[0].InnerXml;
 
