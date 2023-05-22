@@ -99,6 +99,7 @@ namespace IMAL_KYC
         string email = string.Empty;
         string blockArabic = string.Empty;
         string block =string.Empty;
+        string TaxIDNumber = string.Empty;
 
         DAL DalCode = new DAL();
         public class ResKYClist
@@ -622,6 +623,8 @@ namespace IMAL_KYC
             public string? blockArabic { get; set; }
 
             public string? block { get; set; }
+
+            public string? TaxIDNumber { get; set; }
         }
 
 
@@ -1100,8 +1103,32 @@ namespace IMAL_KYC
                                 {
                                     foreach (XmlNode node in xmlDoc)
                                     {
+                                        
+                                        XmlNodeList XNcifAdditionalFields = xmlDoc.GetElementsByTagName("cifAdditionalFieldsDC");
+                                        for (int i = 0; i < XNcifAdditionalFields.Count; i++)
+                                        {
+
+                                            var fieldColumnNumber = XNcifAdditionalFields[i].SelectSingleNode("fieldColumnNumber").InnerText;
+                                            var fieldLabel = XNcifAdditionalFields[i].SelectSingleNode("fieldLabel").InnerText;
+                                         
+                                            var fieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber");
+                                            if (fieldValueVarchar !=null)
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                if (fieldColumnNumber == "105")
+                                                {
+                                                    TaxIDNumber = SfieldValueVarchar;
+                                                }
+                                            }
+                                        }
+
+
+                                     
+
 
                                         XmlNodeList XNidNumber = xmlDoc.GetElementsByTagName("idNumber");
+
+
                                         SDidNumber = XNidNumber[0].InnerXml;
 
 
