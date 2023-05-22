@@ -100,6 +100,9 @@ namespace IMAL_KYC
         string blockArabic = string.Empty;
         string block =string.Empty;
         string TaxIDNumber = string.Empty;
+        string Director1 = string.Empty;
+        string Director2 = string.Empty;    
+        string Director3 = string.Empty;    
 
         DAL DalCode = new DAL();
         public class ResKYClist
@@ -625,6 +628,12 @@ namespace IMAL_KYC
             public string? block { get; set; }
 
             public string? TaxIDNumber { get; set; }
+
+            public string? Director1 { get; set; }
+
+            public string? Director2 { get; set; }
+
+            public string? Director3 { get; set; }
         }
 
 
@@ -1119,7 +1128,23 @@ namespace IMAL_KYC
                                                 {
                                                     TaxIDNumber = SfieldValueVarchar;
                                                 }
+
+                                                if (fieldColumnNumber == "24")
+                                                {
+                                                    TaxIDNumber = SfieldValueVarchar;
+                                                }
+
+                                                if (fieldColumnNumber == "25")
+                                                {
+                                                    TaxIDNumber = SfieldValueVarchar;
+                                                }
+
+                                                if (fieldColumnNumber == "26")
+                                                {
+                                                    TaxIDNumber = SfieldValueVarchar;
+                                                }
                                             }
+                                            
                                         }
 
 
@@ -1146,8 +1171,11 @@ namespace IMAL_KYC
 
 
                                         XmlNodeList XNcifIsComplete = xmlDoc.GetElementsByTagName("cifIsComplete");
-                                        SDCIFcifIsComplete = XNcifIsComplete[0].InnerXml;
-
+                                        var VcifIsComplete = xmlDoc.GetElementsByTagName("cifIsComplete");
+                                        if (VcifIsComplete.Count > 0)
+                                        {
+                                            SDCIFcifIsComplete = XNcifIsComplete[0].InnerXml;
+                                        }
 
 
 
@@ -1541,6 +1569,10 @@ namespace IMAL_KYC
                                             email = email,
                                             blockArabic = blockArabic,
                                             block =block,
+                                            TaxIDNumber= TaxIDNumber,
+                                            Director1= Director1,
+                                            Director2= Director2,
+                                            Director3= Director3,   
                                             statusCode = SstatusCode,
                                             statusDesc = SstatusDesc
                                         });
