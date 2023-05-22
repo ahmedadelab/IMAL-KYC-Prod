@@ -1167,8 +1167,11 @@ namespace IMAL_KYC
 
 
                                         XmlNodeList XNcifCategory = xmlDoc.GetElementsByTagName("cifCategory");
-                                        SDCIFcifCategory = XNcifCategory[0].InnerXml;
-
+                                        var VcifCategory = xmlDoc.GetElementsByTagName("cifCategory");
+                                        if (VcifCategory.Count > 0)
+                                        {
+                                            SDCIFcifCategory = XNcifCategory[0].InnerXml;
+                                        }
 
                                         XmlNodeList XNcifIsComplete = xmlDoc.GetElementsByTagName("cifIsComplete");
                                         var VcifIsComplete = xmlDoc.GetElementsByTagName("cifIsComplete");
@@ -1635,6 +1638,12 @@ namespace IMAL_KYC
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
+                respnsCIFDTS.Add(new RespCIFDTS
+                {
+
+                    statusCode = "-999",
+                    statusDesc = CIFNo + "\t" + ex.Message.ToString() + "\n" + ex.StackTrace + "\n" + ex.InnerException
+                }) ;
             }
             return JsonConvert.SerializeObject((respnsCIFDTS));
 
