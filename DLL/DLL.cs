@@ -1428,7 +1428,7 @@ namespace IMAL_KYC
 
                                         XmlNodeList XNlastNameArabic = xmlDoc.GetElementsByTagName("lastNameArabic");
                                         var VlastNameArabic = xmlDoc.GetElementsByTagName("lastNameArabic");
-                                        if (VsecondNameArabic.Count > 0)
+                                        if (VlastNameArabic.Count > 0)
                                         {
                                             lastNameArabic = XNlastNameArabic[0].InnerXml;
                                         }
