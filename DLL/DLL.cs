@@ -1124,24 +1124,24 @@ namespace IMAL_KYC
                                             if (fieldValueVarchar !=null)
                                             {
                                                 string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
-                                                if (fieldColumnNumber == "105")
+                                                if (fieldLabel == "Tax ID Number")
                                                 {
                                                     TaxIDNumber = SfieldValueVarchar;
                                                 }
 
-                                                if (fieldColumnNumber == "24")
+                                                if (fieldLabel == "Director #1 Name")
                                                 {
-                                                    TaxIDNumber = SfieldValueVarchar;
+                                                    Director1 = SfieldValueVarchar;
                                                 }
 
-                                                if (fieldColumnNumber == "25")
+                                                if (fieldLabel == "Director #2 Name")
                                                 {
-                                                    TaxIDNumber = SfieldValueVarchar;
+                                                    Director2 = SfieldValueVarchar;
                                                 }
 
-                                                if (fieldColumnNumber == "26")
+                                                if (fieldLabel == "Director #3 Name")
                                                 {
-                                                    TaxIDNumber = SfieldValueVarchar;
+                                                    Director3 = SfieldValueVarchar;
                                                 }
                                             }
                                             
@@ -1428,7 +1428,7 @@ namespace IMAL_KYC
 
                                         XmlNodeList XNlastNameArabic = xmlDoc.GetElementsByTagName("lastNameArabic");
                                         var VlastNameArabic = xmlDoc.GetElementsByTagName("lastNameArabic");
-                                        if (VlastNameArabic.Count > 0)
+                                        if (VsecondNameArabic.Count > 0)
                                         {
                                             lastNameArabic = XNlastNameArabic[0].InnerXml;
                                         }
