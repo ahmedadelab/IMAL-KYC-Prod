@@ -634,6 +634,8 @@ namespace IMAL_KYC
             public string? Director2 { get; set; }
 
             public string? Director3 { get; set; }
+
+  
         }
 
 
@@ -1120,15 +1122,19 @@ namespace IMAL_KYC
                                             var fieldColumnNumber = XNcifAdditionalFields[i].SelectSingleNode("fieldColumnNumber").InnerText;
                                             var fieldLabel = XNcifAdditionalFields[i].SelectSingleNode("fieldLabel").InnerText;
                                          
-                                            var fieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber");
-                                            if (fieldValueVarchar !=null)
+                                            var fieldValueVarNO = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber");
+                                            var fieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                            if (fieldValueVarNO != null)
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
                                                 if (fieldLabel == "Tax ID Number")
                                                 {
-                                                    TaxIDNumber = SfieldValueVarchar;
+                                                    TaxIDNumber = SfieldValueVarNo;
                                                 }
-
+                                            }
+                                            if (fieldValueVarchar !=null)
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
                                                 if (fieldLabel == "Director #1 Name")
                                                 {
                                                     Director1 = SfieldValueVarchar;
@@ -1144,6 +1150,7 @@ namespace IMAL_KYC
                                                     Director3 = SfieldValueVarchar;
                                                 }
                                             }
+                                            
                                             
                                         }
 
