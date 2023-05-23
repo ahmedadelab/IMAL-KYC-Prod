@@ -102,7 +102,55 @@ namespace IMAL_KYC
         string TaxIDNumber = string.Empty;
         string Director1 = string.Empty;
         string Director2 = string.Empty;    
-        string Director3 = string.Empty;    
+        string Director3 = string.Empty;
+
+        string Representative1Name = string.Empty;
+
+        string Representative1ID =  string.Empty;
+
+         string Representative1IDExpire = string.Empty;
+
+        string Representative1NationalIDIssueDate = string.Empty;
+
+        string Representative1NationalIDIssuePlace = string.Empty;
+
+
+        string Representative1IDType = string.Empty;
+
+        string Representative1Nationality = string.Empty;
+
+        string Representative1Address = string.Empty;
+
+        string Representative1Address2 = string.Empty;
+
+        string Representative2Address2 = string.Empty;
+
+        string Representative1Phone = string.Empty;
+
+        string Representative2Name = string.Empty;
+
+        string Representative2ID = string.Empty;
+
+        string Representative2IDExpire = string.Empty;
+
+        string Representative2NationalIDIssue = string.Empty;
+
+        string Representative2IDType = string.Empty;
+
+        string Representative2Nationality = string.Empty;
+
+        string Representative2Address = string.Empty;
+
+      
+
+        string Representative2Phone = string.Empty;
+
+        string Representative2NationalIDIssuePlace = string.Empty;
+
+        string Representative2NationalIDIssueDate = string.Empty;
+
+     
+
 
         DAL DalCode = new DAL();
         public class ResKYClist
@@ -635,7 +683,47 @@ namespace IMAL_KYC
 
             public string? Director3 { get; set; }
 
-  
+            public string? Representative1Name { get; set; }
+
+            public string? Representative1ID { get; set; }
+
+            public string? Representative1IDExpire { get; set; }
+
+            public string? Representative1NationalIDIssuePlace { get; set; }
+
+            public string? Representative1NationalIDIssueDate { get; set; }
+
+            public string? Representative1IDType { get; set; }
+
+            public string? Representative1Nationality { get; set; }
+
+            public string? Representative1Address { get; set; }
+
+            public string? Representative1Address2 { get; set; }
+
+            public string? Representative1Phone { get; set; }
+
+            public string? Representative2Name { get; set; }
+
+            public string? Representative2ID { get; set; }
+
+            public string? Representative2IDExpire { get; set; }
+
+            public string? Representative2NationalIDIssuePlace { get; set; }
+
+            public string? Representative2NationalIDIssueDate { get; set; }
+
+            public string? Representative2IDType { get; set; }
+
+            public string? Representative2Nationality { get; set; }
+
+            public string? Representative2Address { get; set; }
+
+            public string? Representative2Address2 { get; set; }
+            public string? Representative2Phone { get; set; }
+
+          
+
         }
 
 
@@ -1121,7 +1209,7 @@ namespace IMAL_KYC
 
                                             var fieldColumnNumber = XNcifAdditionalFields[i].SelectSingleNode("fieldColumnNumber").InnerText;
                                             var fieldLabel = XNcifAdditionalFields[i].SelectSingleNode("fieldLabel").InnerText;
-                                         
+                                            var fieldValueDate = XNcifAdditionalFields[i].SelectNodes("fieldValueDate");
                                             var fieldValueVarNO = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber");
                                             var fieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
                                             if (fieldValueVarNO != null)
@@ -1150,8 +1238,126 @@ namespace IMAL_KYC
                                                     Director3 = SfieldValueVarchar;
                                                 }
                                             }
-                                            
-                                            
+                                            if((fieldColumnNumber =="31") &&(fieldLabel == "Name") &&(fieldValueVarchar !=null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative1Name = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "32") && (fieldLabel == "National ID") && (fieldValueVarNO != null))
+                                            {
+                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                Representative1ID = SfieldValueVarNo;
+                                            }
+
+                                            if ((fieldColumnNumber == "33") && (fieldLabel == "National ID Expiry Date") && (fieldValueDate != null))
+                                            {
+                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                Representative1IDExpire = SfieldValueDate;
+                                            }
+
+                                            if ((fieldColumnNumber == "34") && (fieldLabel == "National ID Issue Date") && (fieldValueDate != null))
+                                            {
+                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                Representative1NationalIDIssueDate = SfieldValueDate;
+                                            }
+
+                                            if ((fieldColumnNumber == "35") && (fieldLabel == "National ID Issue Place") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative1NationalIDIssuePlace = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "36") && (fieldLabel == "ID Type") && (fieldValueVarNO != null))
+                                            {
+                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                Representative1IDType = SfieldValueVarNo;
+                                            }
+
+                                            if ((fieldColumnNumber == "38") && (fieldLabel == "Nationality") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative1Nationality = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "39") && (fieldLabel == "Address 1") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative1Address = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "40") && (fieldLabel == "Address 2") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative1Address2 = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "42") && (fieldLabel == "Phone No") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative1Phone = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "45") && (fieldLabel == "Name") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative2Name = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "46") && (fieldLabel == "National ID") && (fieldValueVarNO != null))
+                                            {
+                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                Representative2ID = SfieldValueVarNo;
+                                            }
+
+                                            if ((fieldColumnNumber == "47") && (fieldLabel == "National ID Expiry Date") && (fieldValueDate != null))
+                                            {
+                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                Representative2IDExpire = SfieldValueDate;
+                                            }
+
+                                            if ((fieldColumnNumber == "48") && (fieldLabel == "National ID Issue Date") && (fieldValueDate != null))
+                                            {
+                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                Representative2NationalIDIssueDate = SfieldValueDate;
+                                            }
+
+                                            if ((fieldColumnNumber == "49") && (fieldLabel == "National ID Issue Place") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative2NationalIDIssuePlace = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "50") && (fieldLabel == "ID Type") && (fieldValueVarNO != null))
+                                            {
+                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                Representative2IDType = SfieldValueVarNo;
+                                            }
+
+                                            if ((fieldColumnNumber == "52") && (fieldLabel == "Nationality") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative2Nationality = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "53") && (fieldLabel == "Address 1") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative2Address = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "54") && (fieldLabel == "Address 2") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative2Address2 = SfieldValueVarchar;
+                                            }
+
+                                            if ((fieldColumnNumber == "56") && (fieldLabel == "Phone No") && (fieldValueVarchar != null))
+                                            {
+                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                Representative2Phone = SfieldValueVarchar;
+                                            }
+
                                         }
 
 
@@ -1585,7 +1791,32 @@ namespace IMAL_KYC
                                             TaxIDNumber= TaxIDNumber,
                                             Director1= Director1,
                                             Director2= Director2,
-                                            Director3= Director3,   
+                                            Director3= Director3,
+                                            Representative1Name = Representative1Name,
+                                            Representative1ID = Representative1ID,
+                                            Representative1IDExpire = Representative1IDExpire,
+                                            Representative1NationalIDIssueDate = Representative1NationalIDIssueDate,
+                                            Representative1NationalIDIssuePlace = Representative1NationalIDIssuePlace,
+                                            Representative1IDType = Representative1IDType,
+                                            Representative1Nationality = Representative1Nationality,
+                                            Representative1Address = Representative1Address,
+                                            Representative1Address2 = Representative1Address2,
+                                            Representative2Address2 = Representative2Address2,
+                                            Representative1Phone = Representative1Phone,
+                                            Representative2Name = Representative2Name,
+                                            Representative2ID = Representative2ID,
+                                            Representative2IDExpire = Representative2IDExpire,
+                                            Representative2NationalIDIssueDate = Representative1NationalIDIssueDate,
+                                            Representative2NationalIDIssuePlace = Representative1NationalIDIssuePlace,
+                                            Representative2IDType = Representative2IDType,
+                                            Representative2Nationality = Representative2Nationality,
+                                            Representative2Address = Representative2Address,
+                                        
+                                            Representative2Phone = Representative2Phone,
+                                        
+
+
+
                                             statusCode = SstatusCode,
                                             statusDesc = SstatusDesc
                                         });
