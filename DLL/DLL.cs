@@ -722,7 +722,7 @@ namespace IMAL_KYC
             public string? Representative2Address2 { get; set; }
             public string? Representative2Phone { get; set; }
 
-          
+          public string? CIF { get; set; }
 
         }
 
@@ -1813,7 +1813,7 @@ namespace IMAL_KYC
                                             Representative2Address = Representative2Address,
                                         
                                             Representative2Phone = Representative2Phone,
-                                        
+                                            CIF = CIFNo,
 
 
 
@@ -1883,7 +1883,7 @@ namespace IMAL_KYC
                     statusDesc = CIFNo + "\t" + ex.Message.ToString() + "\n" + ex.StackTrace + "\n" + ex.InnerException
                 }) ;
             }
-            return JsonConvert.SerializeObject((respnsCIFDTS));
+            return JsonConvert.SerializeObject(respnsCIFDTS, Newtonsoft.Json.Formatting.Indented);
 
         }
     }
