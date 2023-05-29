@@ -1312,26 +1312,42 @@ namespace IMAL_KYC
 
                                             if ((fieldColumnNumber == "47") && (fieldLabel == "National ID Expiry Date") && (fieldValueDate != null))
                                             {
-                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
-                                                Representative2IDExpire = SfieldValueDate;
+                                                var VF47 = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate");
+                                                if (VF47 != null)
+                                                {
+                                                    string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                    Representative2IDExpire = SfieldValueDate;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "48") && (fieldLabel == "National ID Issue Date") && (fieldValueDate != null))
                                             {
-                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
-                                                Representative2NationalIDIssueDate = SfieldValueDate;
+                                                var VF48 = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate");
+                                                if (VF48 != null)
+                                                {
+                                                    string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                    Representative2NationalIDIssueDate = SfieldValueDate;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "49") && (fieldLabel == "National ID Issue Place") && (fieldValueVarchar != null))
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
-                                                Representative2NationalIDIssuePlace = SfieldValueVarchar;
+                                                var VF49 =  XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VF49 != null)
+                                                {
+                                                    string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                    Representative2NationalIDIssuePlace = SfieldValueVarchar;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "50") && (fieldLabel == "ID Type") && (fieldValueVarNO != null))
                                             {
-                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
-                                                Representative2IDType = SfieldValueVarNo;
+                                                var VF50 = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber");
+                                                if (VF50 != null)
+                                                {
+                                                    string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                    Representative2IDType = SfieldValueVarNo;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "52") && (fieldLabel == "Nationality") && (fieldValueVarchar != null))
