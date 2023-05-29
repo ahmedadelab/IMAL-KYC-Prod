@@ -1252,62 +1252,102 @@ namespace IMAL_KYC
 
                                             if ((fieldColumnNumber == "33") && (fieldLabel == "National ID Expiry Date") && (fieldValueDate != null))
                                             {
-                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
-                                                Representative1IDExpire = SfieldValueDate;
+                                                var VfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate");
+                                                if (VfieldValueDate != null)
+                                                {
+                                                    string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                    Representative1IDExpire = SfieldValueDate;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "34") && (fieldLabel == "National ID Issue Date") && (fieldValueDate != null))
                                             {
-                                                string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
-                                                Representative1NationalIDIssueDate = SfieldValueDate;
+                                                var VfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate");
+                                                if (VfieldValueDate != null)
+                                                {
+                                                    string SfieldValueDate = XNcifAdditionalFields[i].SelectSingleNode("fieldValueDate").InnerText;
+                                                    Representative1NationalIDIssueDate = SfieldValueDate;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "35") && (fieldLabel == "National ID Issue Place") && (fieldValueVarchar != null))
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
-                                                Representative1NationalIDIssuePlace = SfieldValueVarchar;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                    Representative1NationalIDIssuePlace = SfieldValueVarchar;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "36") && (fieldLabel == "ID Type") && (fieldValueVarNO != null))
                                             {
-                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
-                                                Representative1IDType = SfieldValueVarNo;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                    Representative1IDType = SfieldValueVarNo;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "38") && (fieldLabel == "Nationality") && (fieldValueVarchar != null))
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
-                                                Representative1Nationality = SfieldValueVarchar;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                    Representative1Nationality = SfieldValueVarchar;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "39") && (fieldLabel == "Address 1") && (fieldValueVarchar != null))
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
-                                                Representative1Address = SfieldValueVarchar;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                    Representative1Address = SfieldValueVarchar;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "40") && (fieldLabel == "Address 2") && (fieldValueVarchar != null))
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
-                                                Representative1Address2 = SfieldValueVarchar;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                    Representative1Address2 = SfieldValueVarchar;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "42") && (fieldLabel == "Phone No") && (fieldValueVarchar != null))
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
-                                                Representative1Phone = SfieldValueVarchar;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                    Representative1Phone = SfieldValueVarchar;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "45") && (fieldLabel == "Name") && (fieldValueVarchar != null))
                                             {
-                                                string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
-                                                Representative2Name = SfieldValueVarchar;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueVarchar").InnerText;
+                                                    Representative2Name = SfieldValueVarchar;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "46") && (fieldLabel == "National ID") && (fieldValueVarNO != null))
                                             {
-                                                string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
-                                                Representative2ID = SfieldValueVarNo;
+                                                var VfieldValueVarchar = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber");
+                                                if (VfieldValueVarchar != null)
+                                                {
+                                                    string SfieldValueVarNo = XNcifAdditionalFields[i].SelectSingleNode("fieldValueNumber").InnerText;
+                                                    Representative2ID = SfieldValueVarNo;
+                                                }
                                             }
 
                                             if ((fieldColumnNumber == "47") && (fieldLabel == "National ID Expiry Date") && (fieldValueDate != null))
